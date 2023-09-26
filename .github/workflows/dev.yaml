@@ -9,10 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Store the run number
+      - name: Store the run number in a variable
         run: |
           run_number = ${{ github.run_number }}
 
       - name: Print the run number
+        shell: /usr/bin/bash -e {0}
         run: |
           echo "The run number is: $run_number"
