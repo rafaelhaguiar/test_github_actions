@@ -1,0 +1,18 @@
+name: My workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Store the run number
+        run: |
+          run_number = ${{ github.run_number }}
+
+      - name: Print the run number
+        run: |
+          echo "The run number is: $run_number"
