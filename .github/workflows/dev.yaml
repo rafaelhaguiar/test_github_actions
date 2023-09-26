@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Print on first job
         run: |
-          echo "The run number in first job is: ${{ github.run_number }}""
+          echo "The run number in first job is: ${{ github.run_number }}"
   clayton:
     runs-on: ubuntu-latest
     needs: build
@@ -18,3 +18,7 @@ jobs:
       - name: Print in second job
         run: |
           echo "The run number in second job is: ${{ github.run_number }}"
+
+  narutin:
+    runs-on: ubuntu-latest
+    needs: clayton
