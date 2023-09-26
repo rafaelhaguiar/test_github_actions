@@ -7,12 +7,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Store the run number in a variable
+      - name: Print on first job
         run: |
           echo "The run number in first step is: ${{ github.run_number }}"
-      - name: Print the run number
-        shell: /usr/bin/bash -e {0}
+  clayton:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Print in second job
         run: |
-          echo "The run number in second step is: ${{ github.run_number }}"
+          echo "The run number in second job is: ${{ github.run_number }}"
+
