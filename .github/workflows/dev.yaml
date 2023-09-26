@@ -11,9 +11,8 @@ jobs:
     steps:
       - name: Store the run number in a variable
         run: |
-          run_number = ${{ github.run_number }}
-
+          echo "The run number in first step is: ${{ github.run_number }}
       - name: Print the run number
         shell: /usr/bin/bash -e {0}
         run: |
-          echo "The run number is: $run_number"
+          echo "The run number in second step is: ${{ github.run_number }}
