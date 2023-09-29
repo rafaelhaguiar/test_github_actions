@@ -18,6 +18,7 @@ jobs:
     steps:
       - name: Print current directory
         run: |
+          cd ..  
           pwd   
       - name: Create tag
         run: |
