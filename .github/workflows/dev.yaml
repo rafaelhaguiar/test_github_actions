@@ -1,23 +1,16 @@
-name: My workflow
+name: ci-pr
 on:
-  push:
-    branches:
-      - main
-
+  pull_request:
 jobs:
-  build:
+  create-action:
     runs-on: ubuntu-latest
     steps:
-      - name: Print on first job
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - name: Run tag
         run: |
-          echo "The run number in first job is: ${{ github.run_number }}"
-          branch_name=$(echo $GITHUB_REF_NAME)
+          git tag 1.0.${{ github.run_number }}
 
-  clayton:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Print in second job
-        run: |
-          echo "The run number in second job is: ${{ github.run_number }}-${{ github.ref_name }}"
 
