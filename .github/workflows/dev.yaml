@@ -1,32 +1,16 @@
-name: My workflow
+name: ci-pr
 on:
-  pull_request: 
-    branches:
-      - main
-
+  pull_request:
 jobs:
-  build:
+  create-action:
     runs-on: ubuntu-latest
     steps:
-      - name: Print on first job
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - name: Run tag
         run: |
-          echo "The run number in first job is: ${{ github.run_number }}"
-
-  clayton:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-
-      - name: Change directory to project directory
-        run: |
-          cd /home/runner/work/test_github_actions/
-      - name: List files in directory
-        run: |
-          echo ls      
-      - name: Create tag
-        run: |
-          cd ..
-          pwd
           git tag 1.0.${{ github.run_number }}
 
 
