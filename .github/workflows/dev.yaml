@@ -19,4 +19,6 @@ jobs:
       - name: Create tag
         run: |
           git tag 1.0.${{ github.run_number }}
+          pwd
+
 
