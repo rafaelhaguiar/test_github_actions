@@ -19,5 +19,5 @@ jobs:
     steps:
       - name: Print in second job
         run: |
-          echo "The run number in second job is: ${{ github.run_number }}-${{ github.ref_name }}"
+          echo "The run number in second job is: ${{ github.run_number }}-${{ github.head_ref }}"
 
