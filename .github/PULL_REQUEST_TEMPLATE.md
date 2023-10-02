@@ -2,7 +2,7 @@
 
 ## Type of Change
 
-<!--- Put an `x` in all the boxes that apply: -->
+<!--- Put an `x` in all the boxes that apply: 2-->
 
 - [ ] ✨ New feature
 - [ ] 🔬 Test

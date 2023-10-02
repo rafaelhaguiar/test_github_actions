@@ -1,6 +1,8 @@
 name: ci-pr
 on:
   pull_request:
+    branches: 
+      - main
 jobs:
   create-action:
     runs-on: ubuntu-latest
